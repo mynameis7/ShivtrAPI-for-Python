@@ -29,17 +29,4 @@ def logout():
     url = format_url(site) + "users/sign_out.json"
     params = {STRINGS.AUTH: auth}
     r = requests.delete(url, params=params)
-
-
-if __name__ == "__main__":
-    import members
-    def admin_login():
-        import login_info as li
-        return login(li.email, li.password)
-    site = "http://www.logunners.shivtr.com/"
-    VARS.SITE = site
-    admin_login()
-    inactive = members.members("inactive","all")
-    active = members.members("active","all")
-    deleted = members.members("deleted","all")
-    logout()
+    VARS.TOK = None
