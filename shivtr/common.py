@@ -13,10 +13,16 @@ def format_url(site):
     return url
 
 class VARS:
+    """
+    Global Level Variables for use with the Shivtr API
+    """
     SITE = ""
     TOK = None
 
 class STRINGS:
+    """
+    Strings for use with the API
+    """
     AUTH = "auth_token"
     STAT = "status"
     PAGE = "page"

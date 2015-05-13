@@ -7,6 +7,7 @@ import authenticate
 import common
 import members
 import news
+import forums
 
 def set_site(site):
     """
