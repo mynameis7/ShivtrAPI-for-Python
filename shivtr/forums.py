@@ -1,5 +1,5 @@
 import requests
-from common import VARS, STRINGS
+from common import format_url, VARS, STRINGS
 
 
 def forums(forum_id=None):
@@ -10,7 +10,7 @@ def forums(forum_id=None):
     Keyword arguments:
     forum_id    -- Id of the forum
     """
-    url = VARS.SITE
+    url = format_url(VARS.SITE)
     url += "/forums"
     if forum_id:
         url += "/%s"%forum_id
@@ -30,10 +30,11 @@ def forum_threads(thread_id):
     Keyword arguments:
     thread_id   -- Id of the forum thread
     """
-    url = VARS.SITE
+    url = format_url(VARS.SITE)
     url += "/forum_threads"
     url += "/%s.json"%thread_id
     auth = VARS.TOK
+    params = {}
     if auth:
         params[STRINGS.AUTH] = auth
     r = requests.get(url, params=params)
