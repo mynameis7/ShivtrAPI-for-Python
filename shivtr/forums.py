@@ -31,9 +31,22 @@ def forum_threads(thread_id):
     thread_id   -- Id of the forum thread
     """
     url = format_url(VARS.SITE)
-    url += "/forum_threads"
+    url += "forum_threads"
     url += "/%s.json"%thread_id
     auth = VARS.TOK
+    params = {}
+    if auth:
+        params[STRINGS.AUTH] = auth
+    r = requests.get(url, params=params)
+    return r.json()
+
+
+def unread():
+    """
+    Gets the unread posts from the forums
+    """
+    url = format_url(VARS.SITE)
+    url += "forum_threads/unread.json"
     params = {}
     if auth:
         params[STRINGS.AUTH] = auth
